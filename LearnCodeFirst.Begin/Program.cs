@@ -1,6 +1,7 @@
 ﻿using LearnCodeFirst.Begin.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,8 @@ namespace LearnCodeFirst.Begin
     {
         static void Main(string[] args)
         {
+            Database.SetInitializer(new Initializer());
+
             using (Context context = new Context())
             {
                 //如果数据库不存在时创建
@@ -61,12 +64,12 @@ namespace LearnCodeFirst.Begin
                 #endregion
 
                 #region 4.删除
-                //var deleteDonator = context.Donators.Single(o => o.Name == "待打赏");
-                //if (deleteDonator != null)
-                //{
-                //    context.Donators.Remove(deleteDonator);
-                //    context.SaveChanges();
-                //}
+                var deleteDonator = context.Donators.FirstOrDefault(o => o.Name == "待打赏");
+                if (deleteDonator != null)
+                {
+                    context.Donators.Remove(deleteDonator);
+                    context.SaveChanges();
+                }
                 #endregion
             }
             //Console.WriteLine("DB has Created");
