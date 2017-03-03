@@ -17,13 +17,14 @@ namespace LearnCodeFirst.Begin
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Donator>().ToTable("Donators").HasKey(o => o.DonatorId);//将Donator类映射到Donators表中，并且DonatorId是主键
-            modelBuilder.Entity<Donator>().Property(m => m.DonatorId).HasColumnName("Id");//将DonatorID在数据库的对应的字段为Id
+            //modelBuilder.Entity<Donator>().ToTable("Donators").HasKey(o => o.DonatorId);//将Donator类映射到Donators表中，并且DonatorId是主键
+            //modelBuilder.Entity<Donator>().Property(m => m.DonatorId).HasColumnName("Id");//将DonatorID在数据库的对应的字段为Id
 
-            modelBuilder.Entity<Donator>().Property(m => m.Name).IsRequired()
-                .IsUnicode().
-                HasMaxLength(10);
+            //modelBuilder.Entity<Donator>().Property(m => m.Name).IsRequired()
+            //    .IsUnicode().
+            //    HasMaxLength(10);
 
+            modelBuilder.Configurations.Add(new DonatorMap());
 
             base.OnModelCreating(modelBuilder);
         }

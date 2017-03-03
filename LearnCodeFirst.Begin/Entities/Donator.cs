@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.ModelConfiguration;
 
 namespace LearnCodeFirst.Begin.Entities
 {
@@ -27,5 +28,14 @@ namespace LearnCodeFirst.Begin.Entities
         public string Name { get; set; }
         public decimal Amount { get; set; }
         public DateTime DonateDate { get; set; }
+    }
+
+    public class DonatorMap: EntityTypeConfiguration<Donator>
+    {
+        public DonatorMap()
+        {
+            ToTable("DonatorFromConfig");//为了区分前面的Donators
+            Property(o => o.DonatorId).HasColumnName("Id");
+        }
     }
 }
