@@ -17,7 +17,7 @@ namespace LearnCodeFirst.Begin
             using (Context context = new Context())
             {
                 //如果数据库不存在时创建
-                context.Database.CreateIfNotExists();
+                //context.Database.CreateIfNotExists();
                 #region 1.添加记录
                 //var donators = new List<Donator>
                 //{
