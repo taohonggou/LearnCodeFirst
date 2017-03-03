@@ -29,6 +29,7 @@ namespace LearnCodeFirst.Begin
             base.OnModelCreating(modelBuilder);
         }
 
+
         public DbSet<Donator> Donators { get; set; }
         public DbSet<PayWay> PayWays { get; set; }
     }
