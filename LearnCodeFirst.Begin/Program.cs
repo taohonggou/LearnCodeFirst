@@ -71,6 +71,11 @@ namespace LearnCodeFirst.Begin
                     context.SaveChanges();
                 }
                 #endregion
+
+                #region 6. 一对多关系
+
+
+                #endregion
             }
             //Console.WriteLine("DB has Created");
             //Console.WriteLine("donators add success!");

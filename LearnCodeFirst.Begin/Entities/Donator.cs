@@ -24,18 +24,30 @@ namespace LearnCodeFirst.Begin.Entities
 
     public class Donator
     {
+        public Donator()
+        {
+            //为了避免潜在的null引用异常可能性，当Donator对象创建时，我们使用HashSet的T集合类型实例创建一个新的集合实例，如下所示：
+            PayWays = new HashSet<PayWay>();
+        }
+
         public int DonatorId { get; set; }
         public string Name { get; set; }
         public decimal Amount { get; set; }
         public DateTime DonateDate { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual ICollection<PayWay> PayWays { get; set; }
     }
 
-    public class DonatorMap: EntityTypeConfiguration<Donator>
+    public class DonatorMap : EntityTypeConfiguration<Donator>
     {
         public DonatorMap()
         {
             ToTable("DonatorFromConfig");//为了区分前面的Donators
             Property(o => o.DonatorId).HasColumnName("Id");
+            Property(o => o.Name).IsRequired();
         }
     }
 }
