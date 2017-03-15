@@ -39,15 +39,22 @@ namespace LearnCodeFirst.Begin.Entities
         /// 
         /// </summary>
         public virtual ICollection<PayWay> PayWays { get; set; }
+
+        public int? DonatorTypeId { get; set; }
+
+        public virtual DonatorType DonatorType { get; set; }
     }
 
     public class DonatorMap : EntityTypeConfiguration<Donator>
     {
         public DonatorMap()
         {
-            ToTable("DonatorFromConfig");//为了区分前面的Donators
-            Property(o => o.DonatorId).HasColumnName("Id");
+            ToTable("Donators");//为了区分前面的Donators
+            //Property(o => o.DonatorId).HasColumnName("Id");
             Property(o => o.Name).IsRequired();
+
+            HasMany(o => o.PayWays).
+                WithRequired().HasForeignKey(p => p.DonatorId);
         }
     }
 }

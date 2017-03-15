@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,9 @@ namespace LearnCodeFirst.Begin
             //    HasMaxLength(10);
 
             modelBuilder.Configurations.Add(new DonatorMap());
+            modelBuilder.Configurations.Add(new DonatorTypeMap());
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 
             base.OnModelCreating(modelBuilder);
         }
@@ -32,5 +36,7 @@ namespace LearnCodeFirst.Begin
 
         public DbSet<Donator> Donators { get; set; }
         public DbSet<PayWay> PayWays { get; set; }
+        public DbSet<DonatorType> DonatorTypes { get; set; }
+
     }
 }

@@ -52,6 +52,8 @@ namespace LearnCodeFirst.Begin
                 //{
                 //    Console.WriteLine($"{donator.DonatorId}\t\t{donator.Name}\t\t{donator.Amount}\t\t{donator.DonateDate}");
                 //}
+
+
                 #endregion
 
                 #region 3.更新记录
@@ -64,22 +66,57 @@ namespace LearnCodeFirst.Begin
                 #endregion
 
                 #region 4.删除
-                var deleteDonator = context.Donators.FirstOrDefault(o => o.Name == "待打赏");
-                if (deleteDonator != null)
-                {
-                    context.Donators.Remove(deleteDonator);
-                    context.SaveChanges();
-                }
+                //var deleteDonator = context.Donators.FirstOrDefault(o => o.Name == "待打赏");
+                //if (deleteDonator != null)
+                //{
+                //    context.Donators.Remove(deleteDonator);
+                //    context.SaveChanges();
+                //}
                 #endregion
 
                 #region 6. 一对多关系
+                //var donator = new Donator { DonateDate = DateTime.Parse("2017-03-15"), Amount = 6, Name = "键盘里的鼠标" };
+                //donator.PayWays.Add(new PayWay { Name = "微信" });
+                //donator.PayWays.Add(new PayWay { Name = "支付宝" });
 
+                //context.Donators.Add(donator);
+                //context.SaveChanges();
+
+                #region 6.1 一对多关系 例子2
+                var donatorTypeOne = new DonatorType
+                {
+                    Name = "博客园园友",
+                    Donators = new List<Donator>
+                    {
+                        new Donator
+                        {
+                            Amount=6,Name="键盘里的鼠标",DonateDate=DateTime.Now,
+                            PayWays=new List<PayWay>{new PayWay { Name="支付宝"},new PayWay { Name="微信"} }
+                        },
+                    },
+                };
+
+                var donatorTypeTwo = new DonatorType
+                {
+                    Name = "非博客园园友",
+                    Donators = new List<Donator>
+                    {
+                        new Donator
+                        {
+                            Amount=10,Name="带赞助",DonateDate=DateTime.Now,
+                            PayWays=new List<PayWay>{new PayWay { Name="支付宝"},new PayWay { Name="微信"} }
+                        },
+                    },
+                };
+
+                context.DonatorTypes.Add(donatorTypeOne);
+                context.DonatorTypes.Add(donatorTypeTwo);
+                context.SaveChanges();
+                #endregion
 
                 #endregion
             }
-            //Console.WriteLine("DB has Created");
-            //Console.WriteLine("donators add success!");
-            //Console.WriteLine("search success!");
+
             Console.WriteLine("Success");
             Console.ReadKey();
         }

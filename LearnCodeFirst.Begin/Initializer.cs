@@ -12,12 +12,12 @@ namespace LearnCodeFirst.Begin
     {
         protected override void Seed(Context context)
         {
-            context.PayWays.AddRange(new List<PayWay>
-            {
-                new PayWay {Name="支付宝" },
-                new PayWay {Name="微信" },
-                new PayWay {Name="QQ钱包" },
-            });
+            //context.PayWays.AddRange(new List<PayWay>
+            //{
+            //    new PayWay {Name="支付宝" },
+            //    new PayWay {Name="微信" },
+            //    new PayWay {Name="QQ钱包" },
+            //});
         }
     }
 }

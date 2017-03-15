@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Context.cs" />
     <Compile Include="Entities\Donator.cs" />
+    <Compile Include="Entities\DonatorType.cs" />
     <Compile Include="Entities\PayWay.cs" />
     <Compile Include="Initializer.cs" />
     <Compile Include="Program.cs" />

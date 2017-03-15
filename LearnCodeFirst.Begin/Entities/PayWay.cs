@@ -14,5 +14,7 @@ namespace LearnCodeFirst.Begin.Entities
         public int Id { get; set; }
         [MaxLength(8)]
         public string Name { get; set; }
+
+        public int DonatorId { get; set; }
     }
 }
