@@ -56,6 +56,8 @@
     <Compile Include="Entities\Donator.cs" />
     <Compile Include="Entities\DonatorType.cs" />
     <Compile Include="Entities\PayWay.cs" />
+    <Compile Include="Entities\Person.cs" />
+    <Compile Include="Entities\Student.cs" />
     <Compile Include="Initializer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

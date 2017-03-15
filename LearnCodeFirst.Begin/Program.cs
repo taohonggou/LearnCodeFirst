@@ -83,37 +83,55 @@ namespace LearnCodeFirst.Begin
                 //context.SaveChanges();
 
                 #region 6.1 一对多关系 例子2
-                var donatorTypeOne = new DonatorType
-                {
-                    Name = "博客园园友",
-                    Donators = new List<Donator>
-                    {
-                        new Donator
-                        {
-                            Amount=6,Name="键盘里的鼠标",DonateDate=DateTime.Now,
-                            PayWays=new List<PayWay>{new PayWay { Name="支付宝"},new PayWay { Name="微信"} }
-                        },
-                    },
-                };
+                //var donatorTypeOne = new DonatorType
+                //{
+                //    Name = "博客园园友",
+                //    Donators = new List<Donator>
+                //    {
+                //        new Donator
+                //        {
+                //            Amount=6,Name="键盘里的鼠标",DonateDate=DateTime.Now,
+                //            PayWays=new List<PayWay>{new PayWay { Name="支付宝"},new PayWay { Name="微信"} }
+                //        },
+                //    },
+                //};
 
-                var donatorTypeTwo = new DonatorType
-                {
-                    Name = "非博客园园友",
-                    Donators = new List<Donator>
-                    {
-                        new Donator
-                        {
-                            Amount=10,Name="带赞助",DonateDate=DateTime.Now,
-                            PayWays=new List<PayWay>{new PayWay { Name="支付宝"},new PayWay { Name="微信"} }
-                        },
-                    },
-                };
+                //var donatorTypeTwo = new DonatorType
+                //{
+                //    Name = "非博客园园友",
+                //    Donators = new List<Donator>
+                //    {
+                //        new Donator
+                //        {
+                //            Amount=10,Name="带赞助",DonateDate=DateTime.Now,
+                //            PayWays=new List<PayWay>{new PayWay { Name="支付宝"},new PayWay { Name="微信"} }
+                //        },
+                //    },
+                //};
 
-                context.DonatorTypes.Add(donatorTypeOne);
-                context.DonatorTypes.Add(donatorTypeTwo);
-                context.SaveChanges();
+                //context.DonatorTypes.Add(donatorTypeOne);
+                //context.DonatorTypes.Add(donatorTypeTwo);
+                //context.SaveChanges();
                 #endregion
 
+                #endregion
+
+                #region 7. 一队一关系
+                //var student = new Student
+                //{
+                //    CollegeName = "石家庄学院",
+                //    EnrollmentDate = DateTime.Parse("2016-06-20"),
+                //    Person = new Person
+                //    {
+                //        Name = "陈亮",
+                //    }
+                //};
+
+                //context.Students.Add(student);
+                //context.SaveChanges();
+
+                //var stuents= context.Students.ToList();
+                //var persons = context.Persons.ToList();
                 #endregion
             }
 

@@ -27,6 +27,7 @@ namespace LearnCodeFirst.Begin
 
             modelBuilder.Configurations.Add(new DonatorMap());
             modelBuilder.Configurations.Add(new DonatorTypeMap());
+            modelBuilder.Configurations.Add(new StudentMap());
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 
@@ -37,6 +38,7 @@ namespace LearnCodeFirst.Begin
         public DbSet<Donator> Donators { get; set; }
         public DbSet<PayWay> PayWays { get; set; }
         public DbSet<DonatorType> DonatorTypes { get; set; }
-
+        public DbSet<Person> Persons { get; set; }
+        public DbSet<Student> Students { get; set; }
     }
 }
